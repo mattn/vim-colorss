@@ -4,7 +4,7 @@ function! s:colorss()
   silent file _COLOR_SCHEME_SELECTOR_
   call setline(1, l:colorschemes)
   setlocal buftype=nofile bufhidden=wipe nonumber nomodifiable cursorline
-  call search(g:colors_name)
+  call search(get(g:, 'colors_name', ''))
   augroup ColorSchemeSelector
     au!
     au CursorMoved <buffer> :exe 'colorscheme' getline('.')
